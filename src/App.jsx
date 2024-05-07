@@ -1,12 +1,20 @@
 import React from "react";
-import Home from "./component/Home";
-import DataProvider from "./component/context/DataProvider";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./screens/Home";
+import Eror from "./screens/Error/Eror";
+import Playground from "./screens/playground";
+import { GlobalStyle } from "./style/global";
 
 const App = () => {
   return (
-    <DataProvider>
-      <Home />
-    </DataProvider>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Eror />} />
+        <Route path="/dfdfdfdklfsd" element={<Playground />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
